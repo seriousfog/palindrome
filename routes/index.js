@@ -3,10 +3,11 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.render('index',{
+    phrase: "taco Cat"
+  });
 });
 
-module.exports = router;
 router.post('/', function(req, res){
   res.render('index', {
     phrase: req.body.userText,
@@ -17,7 +18,7 @@ function checkPalindrome(phrase){
   let temp = phrase.split("");
   temp = temp.reverse();
   temp = temp.join("")
-  if (phrase.toLowerCase().replace(" ", "") === tempt.toLowerCase().replace(" ", "") ){
+  if (phrase.toLowerCase().replace(" ", "") === temp.toLowerCase().replace(" ", "") ){
     return true
   }
   else {
@@ -26,8 +27,10 @@ function checkPalindrome(phrase){
 }
 
 function getResultDescription (phrase){
-  if (checkPalindrom(phrase)) {
+  if (checkPalindrome(phrase)) {
     return `${phrase} is a palindrome.`
   }
   return `${phrase} is not a palindrome.`
 }
+
+module.exports = router;

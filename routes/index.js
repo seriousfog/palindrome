@@ -11,11 +11,12 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res){
   res.render('index', {
     phrase: req.body.userText,
-    message: getResultDescription(req.body.userText)
+    message: getResultDescription(req.body.userText),
   })
 })
 function checkPalindrome(phrase){
-  let temp = phrase.split("");
+  let temp = phrase.trim();
+  temp = temp.split();
   temp = temp.reverse();
   temp = temp.join("")
   if (phrase.toLowerCase().replace(" ", "") === temp.toLowerCase().replace(" ", "") ){

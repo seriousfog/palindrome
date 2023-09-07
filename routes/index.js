@@ -16,7 +16,7 @@ router.post('/', function(req, res){
 })
 function checkPalindrome(phrase){
   let temp = phrase.trim();
-  temp = temp.split();
+  temp = temp.split()
   temp = temp.reverse();
   temp = temp.join("")
   if (phrase.toLowerCase().replace(" ", "") === temp.toLowerCase().replace(" ", "") ){
